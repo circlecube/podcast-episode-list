@@ -1,0 +1,64 @@
+$color_white:	#fff;
+$color_light:	#eee;
+$color_green:	#99cc33;
+$color_lblue:	#0DE7FF;
+$color_dblue:	#3399cc;
+$color_aquag:	#33cc99;
+$color_purpl:	#9933cc;
+$color_red:		#CC3214;
+$color_gray:	#999999;
+
+
+// @font-face {
+// 	font-family: 'marvinvisions';
+// 	src: url('../fonts/MarvinVisions/MarvinVisions-Bold.eot?v=4.6.3');
+// 	src: url('../fonts/MarvinVisions/MarvinVisions-Bold.eot?#iefix&v=4.6.3') format('embedded-opentype'), 
+// 	url('../fonts/MarvinVisions/MarvinVisions-Bold.woff2?v=4.6.3') format('woff2'), 
+// 	url('../fonts/MarvinVisions/MarvinVisions-Bold.woff?v=4.6.3') format('woff');
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+
+.hide {
+	display: none;
+}
+body {
+	font-size: 16px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	padding: 4rem 0;
+}
+
+
+thead,
+tfoot {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 3rem;
+	background: rgba(255,255,255,.9);
+
+	tr{ 
+		width: 100%;
+		display: table;
+	}
+}
+tbody {
+	margin: 3rem 0;
+	padding: 3rem 0;
+}
+tfoot {
+	top: initial;
+	bottom: 0;
+}

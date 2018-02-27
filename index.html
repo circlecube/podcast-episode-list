@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Podcast Episodes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.min.css">
+</head>
+
+<body>
+	<main id="app">
+		
+		<div class="container">
+
+            <input type="url" v-model="feedurl" />
+            <button @click="load" class="button">Load</button>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Index</th>
+                        <th>Date</th>
+                        <th>Episode</th>
+                        <th>Length</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr
+                    v-for="episode in episodes"
+                    v-bind:key="episode.id"
+                    v-bind:episode="episode"
+                    v-on:input="incrementSeconds(seconds)"
+                >
+                    <td>
+                        <input type="checkbox" v-on:click="incrementSeconds(!episode.listened, episode.seconds, episode.id)" v-model="episode.listened" />
+                    </td>
+                    <td>{{ episode.id }}</td>
+                    <td>{{ episode.date }}</td>
+                    <td>{{ episode.title.text }}</td>
+                    <td v-bind:data-seconds="episode.seconds">{{ episode.itunesduration.text }}</td>
+                    
+                </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td v-bind:data-seconds="total.listened">{{ total.listened_time }}</td>
+                        <td>{{ total.listened }}</td>
+                        <td>{{ total.episodes_listened }} / {{ total.episodes }}</td>
+                        <td></td>
+                        <td v-bind:data-seconds="total.seconds">{{ total.time }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+		</div>
+        <!-- <pre>{{ response }}</pre> -->
+    </main>
+    <script src="https://unpkg.com/axios@0.18.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/moment@2.20.1/min/moment.min.js"></script>
+    <script src="https://unpkg.com/vue@2.5.13/dist/vue.min.js"></script>
+    <!-- <script src="js/vendors.min.js"></script> -->
+    <script src="js/scripts.min.js"></script>
+</body>
+
+</html>
